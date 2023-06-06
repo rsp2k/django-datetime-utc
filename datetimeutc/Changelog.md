@@ -1,5 +1,10 @@
 # Changelog
 
+## v1.1.0
+- Added DateTimeUTCRangeField
+- Added support for 'zoneinfo' module for python >=3.9
+
+
 ## v1.0.4
 
 - Removed support for south (now deprecated)

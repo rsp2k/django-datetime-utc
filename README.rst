@@ -2,6 +2,7 @@ Django DateTimeUTC
 ==================
 
 django-datetime-utc provides ``DateTimeUTCField``, a naive datetime model field. In PostgreSQL this translates to the field *timestamp without time zone*. All timestamps are saved in UTC.
+A ``DateTimeUTCRangeField`` (naive `DateTimeRangeField <https://docs.djangoproject.com/en/4.2/ref/contrib/postgres/fields/#datetimerangefield>`_ ) is also provided.
 
 
 Why use this?
@@ -50,6 +51,7 @@ In ``models.py``:
         departure_time = DateTimeUTCField(null=True)
         arrival_time = DateTimeUTCField(null=True)
         record_created = DateTimeUTCField(auto_now_add=True)
+        time_range = DateTimeUTCRangeField(null=True)
 
 Notes
 -----
@@ -68,4 +70,4 @@ Using the ``Journey`` model above as an example, to set ``departure_time`` corre
     # or user defined (naive) datetime objects
     departure_time = user_datetime.replace(tz.gettz(settings.TIME_ZONE))
 
-    Journey.objects.create(name='Flight to LA', departure_time=departure_time)
+    Journey.objects.create(name='Flight to LA', departure_time=departure_time, time_range=(departure_time, arrival_time))

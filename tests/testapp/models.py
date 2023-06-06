@@ -7,3 +7,4 @@ class TestModel(models.Model):
     time_auto_added = DateTimeUTCField(auto_now_add=True)
     time_auto_updated = DateTimeUTCField(auto_now=True)
     time_set_manually = DateTimeUTCField(null=True)
+    #time_range = DateTimeUTCField()
