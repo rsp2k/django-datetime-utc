@@ -48,10 +48,14 @@ class DateTimeUTCField(models.DateTimeField):
         return value
 
 
+class DateTimeRangeUTCField(DateTimeRangeField):
+    range_type = DateTimeRange
+
+
 class DateTimeUTCRangeField(ContinuousRangeField):
     base_field = DateTimeUTCField
     range_type = DateTimeRange
-    form_field = DateTimeRangeField
+    form_field = DateTimeRangeUTCField
 
     def db_type(self, connection):
         return "tsrange"
