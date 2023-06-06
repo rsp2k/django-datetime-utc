@@ -54,4 +54,4 @@ class DateTimeUTCRangeField(ContinuousRangeField):
     form_field = DateTimeRangeField
 
     def db_type(self, connection):
-        return "tstzrange"
+        return "tsrange"
