@@ -10,7 +10,7 @@ except ImportError:
 from django.contrib.postgres.fields.ranges import ContinuousRangeField
 from django.contrib.postgres.forms import DateTimeRangeField
 from django.db import models
-from django.db.backends.postgresql.psycopg_any import DateTimeTZRange
+from django.db.backends.postgresql.psycopg_any import DateTimeRange
 from django.utils import timezone
 from django.conf import settings
 
@@ -50,7 +50,7 @@ class DateTimeUTCField(models.DateTimeField):
 
 class DateTimeUTCRangeField(ContinuousRangeField):
     base_field = DateTimeUTCField
-    range_type = DateTimeTZRange
+    range_type = DateTimeRange
     form_field = DateTimeRangeField
 
     def db_type(self, connection):
