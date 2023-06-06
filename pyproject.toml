@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-datetime-utc"
+description = "Django UTC datetime field - timestamp without time zone"
+readme = "README.rst"
+requires-python = ">=3.8"
+keywords = ["django", "timestamp without timezone", "utc", "datetime"]
+license = {file = "LICENSE"}
+authors = [
+    { name = "Darren O'Neill", email = "darren@pixeldomain.co.uk" }
+]
+classifiers = [
+    'Framework :: Django',
+    'Environment :: Web Environment',
+    'Intended Audience :: Developers',
+    'Topic :: Internet',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11'
+]
+dependencies = [
+    'Django>=1.5.0',
+    'python-dateutil'
+]
+dynamic = ["version"]
+
+[project.urls]
+homepage = "https://github.com/pixeldomain/django-datetime-utc"
+
+[project.optional-dependencies]
+test = ["pytest", ]
+
+[tool.setuptools.dynamic]
+version = {attr = "datetimeutc.__version__"}
